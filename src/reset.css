@@ -1,0 +1,45 @@
+textarea.expander {
+	overflow: hidden;
+	resize: none;
+}
+.modal {
+	display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0,0,0,0);
+}
+.modal.intro {
+	display: block;
+}
+.modal.intro.show {
+	background-color: rgba(0,0,0,0.9);
+}
+.modal > * {
+	position: fixed;
+}
+span.modal-close {
+	top: 4px;
+	right: 4px;
+	font-size: 16px;
+	line-height: 16px;
+	color: #fff;
+}
+span.modal-close:hover {
+	color: #ccc;
+	text-decoration: underline;
+}
+.modal > textarea {
+	font-size: 125%;
+	background-color: rgba(255,255,255,0.8);
+	resize: none;
+	outline: none;
+	border: none;
+	padding: 20px;
+	border-radius: 4px;
+	text-align: center;
+}
