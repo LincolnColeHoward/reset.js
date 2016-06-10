@@ -77,7 +77,7 @@ function POST (route, _opts) {
 function Expander (textarea) {
 	textarea.addEventListener ("keyup", function () {
 		this.style.height = 0;
-		this.style.height = this.innerHeight + "px";
+		this.style.height = this.scrollHeight + "px";
 	}, false);
 }
 // create the modal
