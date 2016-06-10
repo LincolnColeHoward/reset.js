@@ -124,6 +124,7 @@ function flashMessage (text) {
 
 document.addEventListener ("DOMContentLoaded", function () {
 	modal = document.body.DOM ("div");
+	modal.addEventListener ("click", closeMessage, false);
 	closeMessage ();
 	var txts = document.querySelectorAll ("textarea");
 	for (var i = 0; i < txts.length; i++)
