@@ -76,7 +76,6 @@ function POST (route, _opts) {
 // expanding textarea elements
 function Expander (textarea) {
 	textarea.addEventListener ("keyup", function () {
-		this.style.height = 0;
 		this.style.height = this.scrollHeight + "px";
 	}, false);
 }
