@@ -13,10 +13,19 @@ textarea.expander {
   overflow: hidden;
   background-color: rgba(0,0,0,0);
 }
+@keyframes fadeIn {
+	0% {
+		background-color: rgba(0,0,0,0);	
+	}
+	100% {
+		background-color: rgba(0,0,0,0.9);
+	}
+}
 .modal.intro {
 	display: block;
 }
 .modal.intro.show {
+	animation: fadeIn 300ms ease;
 	background-color: rgba(0,0,0,0.9);
 }
 .modal > * {
