@@ -13,7 +13,7 @@ textarea.expander {
   overflow: hidden;
   background-color: rgba(0,0,0,0);
 }
-@keyframes fadeIn {
+@keyframes backgroundIn {
 	0% {
 		background-color: rgba(0,0,0,0);	
 	}
@@ -21,12 +21,23 @@ textarea.expander {
 		background-color: rgba(0,0,0,0.9);
 	}
 }
+@keyframes contentIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
 .modal.intro {
 	display: block;
 }
 .modal.intro.show {
-	animation: fadeIn 300ms ease;
+	animation: backgroundIn 500ms ease;
 	background-color: rgba(0,0,0,0.9);
+}
+.modal.intro.show * {
+	animation: contentIn 500ms ease;
 }
 .modal > * {
 	position: fixed;
