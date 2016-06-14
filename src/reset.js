@@ -70,7 +70,7 @@ function POST (route, _opts) {
 		}
 	}
 	if (opts.data)
-		xhr.send (JSON.stringify (data));
+		xhr.send (JSON.stringify (opts.data));
 	else xhr.send ();
 }
 // expanding textarea elements
