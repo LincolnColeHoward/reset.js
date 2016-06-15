@@ -1,8 +1,3 @@
-// iterate over keys and assign values
-function assign (assigner, assignee) {
-	for (var k in assigner)
-		assignee [k] = assigner [k];
-}
 // create a dom element
 function DOM (element) {
 	var list = element.split (".");
@@ -24,7 +19,7 @@ function GET (route, _opts) {
 		err: false,
 		id: false
 	}
-	assign (_opts, opts);
+	Object.assign (opts, _opts);
 	var path = route;
 	if (opts.id) path += "/" + opts.id;
 	var xhr = new XMLHttpRequest ();
@@ -51,7 +46,7 @@ function POST (route, _opts) {
 		cb: false,
 		err: false
 	}
-	assign (_opts, opts);
+	Object.assign (opts, _opts);
 	var xhr = new XMLHttpRequest ();
 	xhr.open ("POST", route);
 	xhr.setRequestHeader ("Content-Type", "application/json");
@@ -81,6 +76,8 @@ function Expander (textarea) {
 }
 // create the modal
 var modal;
+// adjust the size of the modal
+modal.adjust = function () {};
 // clear the modal message
 function closeMessage () {
 	modal.className = "modal";
@@ -88,9 +85,10 @@ function closeMessage () {
 	var close = modal.DOM ("span.modal-close");
 	close.innerHTML = "close";
 	close.addEventListener ("click", closeMessage, false);
+	window.removeEventListener ("resize", modal.adjust, false);
 }
 // flash text or DOM element for a modal
-function flashMessage (text) {
+function flashMessage (text, adjust) {
 	var area;
 	if (text instanceof Element) {
 		modal.appendChild (text);
@@ -104,7 +102,7 @@ function flashMessage (text) {
 	}
 	modal.className = "modal intro";
 	modal.className = "modal intro show";
-	var adjust = function () {
+	modal.adjust = adjust || function () {
 		var calc = {
 			w: area.scrollWidth,
 			h: area.scrollHeight
@@ -116,8 +114,8 @@ function flashMessage (text) {
 		area.style.left = calc.x + "px";
 		area.style.top = calc.y + "px";
 	}
-	adjust ();
-	window.addEventListener ("resize", adjust, false);
+	modal.adjust ();
+	window.addEventListener ("resize", modal.adjust, false);
 	return area;
 }
 
