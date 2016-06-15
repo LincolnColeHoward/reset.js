@@ -76,8 +76,6 @@ function Expander (textarea) {
 }
 // create the modal
 var modal;
-// adjust the size of the modal
-modal.adjust = function () {};
 // clear the modal message
 function closeMessage () {
 	modal.className = "modal";
@@ -121,6 +119,8 @@ function flashMessage (text, adjust) {
 
 document.addEventListener ("DOMContentLoaded", function () {
 	modal = document.body.DOM ("div");
+	// adjust the size of the modal
+	modal.adjust = function () {};
 	modal.addEventListener ("click", closeMessage, false);
 	closeMessage ();
 	var txts = document.querySelectorAll ("textarea");
