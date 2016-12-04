@@ -1,6 +1,6 @@
 {
   "name": "reset.js",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Some helpful client side js functions.",
   "main": "index.js",
   "repository": {
