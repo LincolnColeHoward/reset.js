@@ -1,4 +1,63 @@
-'use strict'
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">src/reset.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="https://github.com/LincolnColeHoward/reset.js" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-GET">GET</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-POST">POST</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addClass">addClass</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addClass">addClass</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-classes">classes</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-classes">classes</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dom">dom</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dom">dom</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dom">dom</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-evt">evt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-evt">evt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-html">html</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-html">html</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-prop">prop</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-prop">prop</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-trigger">trigger</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-trigger">trigger</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unset">unset</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unset">unset</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-FN">FN</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/reset.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;
 /**
   * Creates and executes a get request using xhr.
   * 
@@ -11,9 +70,9 @@
   */
 let GET = function (path, cb, err) {
   let xhr = new XMLHttpRequest ();
-  xhr.open ("GET", path);
+  xhr.open (&quot;GET&quot;, path);
   xhr.onload = function () {
-    if (xhr.status !== 200 && err) return err ();
+    if (xhr.status !== 200 &amp;&amp; err) return err ();
     try {
       cb (JSON.parse (xhr.response));
     } catch (e) {
@@ -35,10 +94,10 @@ let GET = function (path, cb, err) {
   */
 let POST = function (path, data, cb, err) {
   let xhr = new XMLHttpRequest ();
-  xhr.open ("POST", path);
-  xhr.setRequestHeader ('Content-Type', 'application/json');
+  xhr.open (&quot;POST&quot;, path);
+  xhr.setRequestHeader (&apos;Content-Type&apos;, &apos;application/json&apos;);
   xhr.onload = function () {
-    if (xhr.status !== 201 && err) return err ();
+    if (xhr.status !== 201 &amp;&amp; err) return err ();
     try {
       cb (JSON.parse (xhr.response));
     } catch (e) {
@@ -48,39 +107,16 @@ let POST = function (path, data, cb, err) {
   xhr.send (JSON.stringify (data));
 }
 /**
-  * Creates and executes a delete request using xhr.
-  * 
-  * @param {String} path The route to delete.
-  * @param {Function} cb Callback on success of the delete request.
-  * The argument to the function is the reponse data. If response is valid json,
-  * it is parsed. Otherwise the reponse is left untouched.
-  * @param {Object} cb.response The parsed response.
-  * @param {Function} err On error callback. 
-  */
-let DELETE = function (path, cb, err) {
-  let xhr = new XMLHttpRequest ();
-  xhr.open ("DELETE", path);
-  xhr.onload = function () {
-    if (xhr.status !== 200 && err) return err ();
-    try {
-      cb (JSON.parse (xhr.response));
-    } catch (e) {
-      cb (xhr.response);
-    }
-  }
-  xhr.send ();
-}
-/**
   * Create a DOM node based on the provided string and append it to the provided node.
   * 
   * @param {HTMLElement} el The DOM node to append the created node to.
-  * @param {String} str A dom string to create. Includes css classes separated by '.'.
+  * @param {String} str A dom string to create. Includes css classes separated by &apos;.&apos;.
   * @return {HTMLElement} The same node that was provided.
   */
 let dom = function (el, str) {
-  let list = str.split (".");
+  let list = str.split (&quot;.&quot;);
   let ret = document.createElement (list [0]);
-  for (let i = 1; i < list.length; i++)
+  for (let i = 1; i &lt; list.length; i++)
     ret.classList.add (list [i]);
   el.appendChild (ret);
   return ret;
@@ -102,10 +138,10 @@ let addClass = function (el, str) {
 }
 // remove all classes and add new ones
 let classes = function (el, str) {
-  let adjust = str || '';
-  let list = adjust.split ('.');
-  if (list [0] === '') list.splice (0, 1);
-  el.className = '';
+  let adjust = str || &apos;&apos;;
+  let list = adjust.split (&apos;.&apos;);
+  if (list [0] === &apos;&apos;) list.splice (0, 1);
+  el.className = &apos;&apos;;
   list.forEach (function (cls) {
     el.classList.add (cls);
   });
@@ -167,7 +203,7 @@ let FN = null;
       if (initial instanceof NodeList)
         // if provided a NodeList, turn it into an array
         this [list] = Array.from (initial);
-      if (initial instanceof String || typeof initial === 'string')
+      if (initial instanceof String || typeof initial === &apos;string&apos;)
         // if provided a query, turn it into a nodelist, then an array
         this [list] = Array.from (document.querySelectorAll (initial));
     }
@@ -178,7 +214,7 @@ let FN = null;
         this [list].push (el);
       if (el instanceof NodeList)
         this [list] = this [list].concat (el)
-      if (typeof el === 'string' || el instanceof String)
+      if (typeof el === &apos;string&apos; || el instanceof String)
         this [list] = this [list].concat (Array.from (document.querySelectorAll (el)));
       return this;
     }
@@ -190,10 +226,10 @@ let FN = null;
     remove (el) {
       if (typeof el === Element)
         this [list].splice (this [list].indexOf (el), 1);
-      if (typeof el === 'string' || el instanceof String) {
+      if (typeof el === &apos;string&apos; || el instanceof String) {
         let todelete = document.querySelector (el);
         let index = this [list].indexOf (todelete);
-        if (todelete && index !== -1)
+        if (todelete &amp;&amp; index !== -1)
           this [list].splice (index, 1);
       } 
       return this;
@@ -256,9 +292,9 @@ let FN = null;
       let setting = keepDiff || false;
       let ret = new FN ();
       this.forEach (function (el) {
-        if (rhs.contains (el) && !setting)
+        if (rhs.contains (el) &amp;&amp; !setting)
           ret.add (el);
-        else if (!rhs.contains (el) && setting)
+        else if (!rhs.contains (el) &amp;&amp; setting)
           ret.add (el);
       });
       return ret;
@@ -277,3 +313,20 @@ let FN = null;
     }
   }
 }) ();
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.5.2)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

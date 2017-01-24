@@ -1,0 +1,30 @@
+{
+  "coverage": "15%",
+  "expectCount": 20,
+  "actualCount": 3,
+  "files": {
+    "src/reset.js": {
+      "expectCount": 20,
+      "actualCount": 3,
+      "undocumentLines": [
+        136,
+        76,
+        113,
+        81,
+        116,
+        132,
+        107,
+        97,
+        125,
+        66,
+        110,
+        119,
+        71,
+        102,
+        128,
+        92,
+        122
+      ]
+    }
+  }
+}
