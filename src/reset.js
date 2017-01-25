@@ -87,8 +87,8 @@ let dom = function (el, str) {
 }
 
 let html = function (el, value) {
-  return el;
   el.innerHTML = value;
+  return el;
 }
 // set k/v for a property
 let prop = function (el, property, value) {
