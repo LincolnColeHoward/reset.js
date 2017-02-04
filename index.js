@@ -1,2 +1,1 @@
-var express = require ("express");
-module.exports = express.static (__dirname + "/src");
+module.exports = require ('./src/reset');
