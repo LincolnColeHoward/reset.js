@@ -74,6 +74,12 @@ Element.prototype.html = function (value) {
 Element.prototype.addClass = function (str) {
   return addClass (this, str);
 }
+Element.prototype.removeClass = function (str) {
+  return removeClass (this, str);
+}
+Element.prototype.toggleClass = function (str) {
+  return toggleClass (this, str);
+}
 Element.prototype.classes = function (str) {
   return classes (this, str);
 }
@@ -214,6 +220,13 @@ let FN = null;
           ret.add (el);
       });
       return ret;
+    }
+    // event
+    evt (name, handler) {
+      this.forEach ((el) => {
+        el.evt (name, handler);
+      });
+      return this;
     }
     // only keep whatever matches the qsa
     filter (qsa) {
