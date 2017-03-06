@@ -230,10 +230,10 @@ let FN = null;
     }
     // only keep whatever matches the qsa
     filter (qsa) {
-      let list = this [list];
+      let ls = this [list];
       let i = 0;
-      while (i < list.length) {
-        if (!list [i].matches (qsa)) {
+      while (i < ls.length) {
+        if (!ls [i].matches (qsa)) {
           this.remove (i);
         } else {
           i++;
