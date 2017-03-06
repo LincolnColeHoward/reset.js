@@ -1,76 +1,5 @@
 'use strict'
 /**
-  * Creates and executes a get request using xhr.
-  * 
-  * @param {String} path The route to get.
-  * @param {Function} cb Callback on success of the get request.
-  * The argument to the function is the reponse data. If response is valid json,
-  * it is parsed. Otherwise the reponse is left untouched.
-  * @param {Object} cb.response The parsed response.
-  * @param {Function} err On error callback. 
-  */
-let GET = function (path, cb, err) {
-  let xhr = new XMLHttpRequest ();
-  xhr.open ("GET", path);
-  xhr.onload = function () {
-    if (xhr.status !== 200 && err) return err ();
-    try {
-      cb (JSON.parse (xhr.response));
-    } catch (e) {
-      cb (xhr.response);
-    }
-  }
-  xhr.send ();
-}
-/**
-  * Creates and executes a post request using xhr.
-  * 
-  * @param {String} path The route to post to.
-  * @param {Object} data The data to serialize and post.
-  * @param {Function} cb Callback on success of the post request.
-  * The argument to the function is the reponse data. If response is valid json,
-  * it is parsed. Otherwise the reponse is left untouched.
-  * @param {Object} cb.response The parsed response.
-  * @param {Function} err On error callback.
-  */
-let POST = function (path, data, cb, err) {
-  let xhr = new XMLHttpRequest ();
-  xhr.open ("POST", path);
-  xhr.setRequestHeader ('Content-Type', 'application/json');
-  xhr.onload = function () {
-    if (xhr.status !== 201 && err) return err ();
-    try {
-      cb (JSON.parse (xhr.response));
-    } catch (e) {
-      cb (xhr.response);
-    }
-  }
-  xhr.send (JSON.stringify (data));
-}
-/**
-  * Creates and executes a delete request using xhr.
-  * 
-  * @param {String} path The route to delete.
-  * @param {Function} cb Callback on success of the delete request.
-  * The argument to the function is the reponse data. If response is valid json,
-  * it is parsed. Otherwise the reponse is left untouched.
-  * @param {Object} cb.response The parsed response.
-  * @param {Function} err On error callback. 
-  */
-let DELETE = function (path, cb, err) {
-  let xhr = new XMLHttpRequest ();
-  xhr.open ("DELETE", path);
-  xhr.onload = function () {
-    if (xhr.status !== 200 && err) return err ();
-    try {
-      cb (JSON.parse (xhr.response));
-    } catch (e) {
-      cb (xhr.response);
-    }
-  }
-  xhr.send ();
-}
-/**
   * Create a DOM node based on the provided string and append it to the provided node.
   * 
   * @param {HTMLElement} el The DOM node to append the created node to.
@@ -98,6 +27,15 @@ let prop = function (el, property, value) {
 // add a class to the class list
 let addClass = function (el, str) {
   el.classList.add (str);
+  return el;
+}
+// remove class
+let removeClass = function (el, str) {
+  el.classList.remove (str);
+}
+// add or remove a class
+let toggleClass = function (el, str) {
+  el.classList.toggle (str);
   return el;
 }
 // remove all classes and add new ones
@@ -196,6 +134,8 @@ let FN = null;
         if (todelete && index !== -1)
           this [list].splice (index, 1);
       } 
+      if (typeof el === 'number')
+        this [list].splice (el, 1);
       return this;
     }
     // get the length of the list
@@ -235,11 +175,23 @@ let FN = null;
     // bind chainable method
     addClass (str) {
       this.forEach (function (el) {
-        el.addClass (str);
+        el.classList (str);
       });
     }
+    removeClass (str) {
+      this.forEach (function (el) {
+        el.classList.remove (str);
+      });
+      return this;
+    }
+    toggleClass (str) {
+      this.forEach (function (el) {
+        el.classList.toggle (str);
+      });
+      return this;
+    }
     // bind chainable method
-    classes (str) {
+    classList (str) {
       this.forEach (function (el) {
         el.classes (str);
       });
@@ -262,6 +214,19 @@ let FN = null;
           ret.add (el);
       });
       return ret;
+    }
+    // only keep whatever matches the qsa
+    filter (qsa) {
+      let list = this [list];
+      let i = 0;
+      while (i < list.length) {
+        if (!list [i].matches (qsa)) {
+          this.remove (i);
+        } else {
+          i++;
+        }
+      }
+      return this;
     }
     // bind chainable method
     trigger (event) {
