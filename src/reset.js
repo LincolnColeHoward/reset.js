@@ -95,10 +95,6 @@ Element.prototype.evt = function (name, fn) {
 Element.prototype.trigger = function (event) {
   return trigger (this, event);
 }
-// dom for shadow root
-ShadowRoot.prototype.dom = function (str) {
-  return dom (this, str);
-}
 // create the FN alias for the NodeWrapper
 let FN = null;
 (function () {
